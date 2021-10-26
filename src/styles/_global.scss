@@ -1,0 +1,77 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 50%;
+  @include mq(sphone) {
+    font-size: 30%;
+  }
+  @include mq(sphone-landscape) {
+    font-size: 30%;
+  }
+  @include mq(phone) {
+    font-size: 60%;
+  }
+  @include mq(tablet) {
+    font-size: 70.5%;
+  }
+  @include mq(tablet-wide) {
+    font-size: 80%;
+  }
+  @include mq(desktop-wide) {
+    font-size: 100%;
+  }
+  @include mq(fourK) {
+    font-size: 200%;
+  }
+  @include mq(phone-landscape) {
+    font-size: 45%;
+  }
+}
+body {
+  font-family: 'Cabin', sans-serif;
+}
+p,
+span,
+label,
+button,
+input,
+select {
+  font-size: 1.8rem;
+}
+label {
+  font-family: 'Lora', serif;
+}
+button {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+li {
+  list-style: none;
+  font-size: 1.6rem;
+}
+a {
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+h1 {
+  font-size: 2.4rem;
+}
+h2 {
+  font-size: 2.2rem;
+}
+h3 {
+  font-size: 2rem;
+}
+h4 {
+  font-size: 1.8rem;
+}
