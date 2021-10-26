@@ -1,1 +1,108 @@
+body {
+  height: 100vh;
+}
+header {
+  height: 10vh;
+  background: $eerie-black;
+}
+// header and search bar
+.header-wrapper {
+  @include grid(0.3fr 1.5fr, 1fr);
+  width: 95%;
+  height: 100%;
+  margin: auto;
+}
+.logo-wrapper {
+  height: 100%;
+  width: 100%;
+  align-self: center;
+  justify-self: center;
+  text-align: center;
 
+  svg {
+    width: 75%;
+    height: 100%;
+  }
+}
+.search-wrapper {
+  @include flex(center, center, row);
+  text-align: center;
+  form {
+    @include grid(1fr 0.6fr 0.2fr, 1fr);
+    gap: 0.5rem;
+  }
+  input,
+  select {
+    border: none;
+    outline: none;
+    color: $cultured;
+    background: $eerie-black;
+    border-bottom: 1px solid $cultured;
+    text-align: center;
+  }
+  button {
+    color: $cultured;
+  }
+  select {
+    width: 70%;
+  }
+  input {
+    width: 70%;
+    justify-self: flex-end;
+  }
+}
+// main section, canvas and content
+main {
+  background: $black-fogra;
+  height: 85vh;
+}
+section {
+  height: 100%;
+  width: 95%;
+  margin: auto;
+}
+.info {
+  @include grid(repeat(2, 1fr), 1fr);
+  height: 15%;
+  margin: auto;
+  letter-spacing: 0.1rem;
+  color: $cultured;
+  background: red;
+}
+.current-details,
+.coin-trend {
+  @include grid(1fr, repeat(2, 1fr));
+  margin-top: 10%;
+  .pair {
+    font-size: 1.8rem;
+    align-self: flex-end;
+  }
+  .current-price {
+    align-self: center;
+  }
+}
+.trend {
+  @include grid(1fr 0.15fr, 1fr);
+  grid-area: 2/1/2/1;
+  align-self: center;
+  .trend-stats {
+    justify-self: flex-end;
+    font-size: 1.8rem;
+  }
+  .trend-icon {
+    @include flex(center, center, row);
+    font-size: 1.5rem;
+  }
+}
+canvas {
+  height: 60%;
+  width: 100%;
+  margin: auto;
+  background: blue;
+}
+
+// footer
+footer {
+  height: 5vh;
+  background: $eerie-black;
+}
