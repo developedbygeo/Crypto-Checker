@@ -1,0 +1,117 @@
+$black-fogra: #111213ff;
+$eerie-black: #212224ff;
+$quick-silver: #a1a1a1ff;
+$cultured: #f5f5f5;
+$red-cta: #ff0021;
+$green-cta: #5cdb5c;
+
+@mixin flex($justify, $align, $dir) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $dir;
+}
+@mixin grid($col, $row) {
+  display: grid;
+  grid-template-columns: $col;
+  grid-template-rows: $row;
+}
+@mixin input-placeholder {
+  &.placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+  &::-webkit-input-placeholder {
+    @content;
+  }
+}
+@mixin mq($breakpoint) {
+  @if $breakpoint==sphone {
+    @media only screen and (max-width: 280px) {
+      @content;
+    }
+  }
+  @if $breakpoint==mphone {
+    @media only screen and (min-width: 375px) {
+      @content;
+    }
+  }
+  @if $breakpoint==wphone {
+    @media only screen and (min-width: 360px) and (min-height: 760px) {
+      @content;
+    }
+  }
+  @if $breakpoint==phone {
+    @media only screen and (min-width: 400px) {
+      @content;
+    }
+  }
+  @if $breakpoint==lgphone {
+    @media only screen and (min-width: 380px) and (min-height: 830px) {
+      @content;
+    }
+  }
+  @if $breakpoint==phone-wide {
+    @media only screen and (min-width: 480px) {
+      @content;
+    }
+  }
+  @if $breakpoint==phone-landscape {
+    @media only screen and (min-width: 568px) and (max-height: 430px) {
+      @content;
+    }
+  }
+  @if $breakpoint==sphone-landscape {
+    @media only screen and (min-width: 320px) and (max-height: 250px) {
+      @content;
+    }
+  }
+  @if $breakpoint==phablet {
+    @media only screen and (min-width: 560px) {
+      @content;
+    }
+  }
+  @if $breakpoint==tablet-small {
+    @media only screen and (min-width: 640px) {
+      @content;
+    }
+  }
+  @if $breakpoint==tablet {
+    @media only screen and (min-width: 768px) {
+      @content;
+    }
+  }
+  @if $breakpoint==tablet-wide {
+    @media only screen and (min-width: 1024px) {
+      @content;
+    }
+  }
+  @if $breakpoint==tablet-landscape {
+    @media only screen and (min-width: 1024px) and (max-width: 1366px) and(max-height: 840px) and (orientation: landscape) {
+      @content;
+    }
+  }
+  @if $breakpoint==desktop {
+    @media only screen and (min-width: 1248px) {
+      @content;
+    }
+  }
+  @if $breakpoint==desktop-wide {
+    @media only screen and (min-width: 1440px) {
+      @content;
+    }
+  }
+  @if $breakpoint==fourK {
+    @media only screen and (min-width: 3800px) {
+      @content;
+    }
+  }
+}
