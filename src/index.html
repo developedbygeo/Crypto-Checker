@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./main.css" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body>
+    <header>
+      <div class="header-wrapper">
+        <div class="logo-wrapper">
+          <svg
+            width="500"
+            height="500"
+            viewBox="0 0 500 500"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M452.687 500C445.571 499.996 438.548 498.73 432.142 496.295C425.733 493.859 420.105 490.317 415.676 485.933C401.972 474.283 296.054 392.384 231.151 342.451C226.659 339.042 223.068 334.969 220.585 330.462C218.102 325.958 216.775 321.109 216.682 316.199C216.589 311.288 217.731 306.411 220.042 301.848C222.353 297.286 225.788 293.129 230.149 289.616C234.509 286.105 239.71 283.306 245.45 281.382C251.19 279.458 257.357 278.449 263.596 278.408C269.835 278.368 276.022 279.301 281.8 281.152C287.58 283.004 292.835 285.737 297.267 289.194C297.73 289.551 344.474 325.518 390.869 361.446L405.406 372.708V197.815C405.406 129.801 335.693 74.4674 250 74.4674C164.307 74.4674 94.5946 129.801 94.5946 197.815V462.763C94.5946 472.638 89.6114 482.109 80.7415 489.092C71.8716 496.074 59.8412 499.996 47.2972 499.996C34.7531 499.996 22.723 496.074 13.853 489.092C4.9831 482.109 0 472.638 0 462.763V197.815C0 88.7388 112.149 0 250 0C387.849 0 500 88.7388 500 197.815V462.763C499.994 472.638 495.008 482.109 486.136 489.094C477.264 496.076 465.233 499.998 452.687 500ZM409.688 478.234L409.707 478.268L409.688 478.234Z"
+              fill="url(#paint0_linear_23:152)"
+            />
+            <path
+              d="M247.5 233.5C267.382 233.5 283.5 218.278 283.5 199.5C283.5 180.722 267.382 165.5 247.5 165.5C227.618 165.5 211.5 180.722 211.5 199.5C211.5 218.278 227.618 233.5 247.5 233.5Z"
+              fill="url(#paint1_linear_23:152)"
+            />
+            <defs>
+              <linearGradient
+                id="paint0_linear_23:152"
+                x1="250"
+                y1="506"
+                x2="250"
+                y2="1.49998"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#003619" />
+                <stop offset="1" stop-color="#12ECA0" />
+              </linearGradient>
+              <linearGradient
+                id="paint1_linear_23:152"
+                x1="267"
+                y1="435.536"
+                x2="267"
+                y2="32.4946"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#040D0F" />
+                <stop offset="1" stop-color="#12ECA0" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="search-wrapper">
+          <form>
+            <input type="text" name="search-coin" id="search-coin" />
+            <select name="coin-pair" id="coin-pair">
+              <option value="usd">USD</option>
+              <option value="eur">EUR</option>
+              <option value="gbp">GBP</option>
+            </select>
+            <button type="button" title="Search now!">
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section>
+        <div class="info">
+          <div class="current-details">
+            <span class="pair">BTC/USD</span>
+            <h2 class="current-price">52.121</h2>
+          </div>
+          <div class="coin-trend">
+            <div class="trend">
+              <p class="trend-stats">-0.21%</p>
+              <div class="trend-icon">
+                <i class="fas fa-chevron-up"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <canvas class="value-canvas"></canvas>
+      </section>
+    </main>
+    <footer></footer>
+  </body>
+</html>
