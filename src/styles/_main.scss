@@ -55,6 +55,7 @@ header {
 main {
   background: $black-fogra;
   height: 85vh;
+  position: relative;
 }
 section {
   height: 100%;
@@ -81,6 +82,15 @@ section {
     align-self: center;
   }
 }
+.current-details {
+  @include grid(0.25fr 1fr, 1fr);
+  .data-wrapper {
+    @include grid(1fr, repeat(2, 1fr));
+  }
+}
+.coin-trend {
+  @include grid(1fr, repeat(2, 1fr));
+}
 .trend {
   @include grid(1fr 0.15fr, 1fr);
   grid-area: 2/1/2/1;
@@ -101,8 +111,65 @@ canvas {
   background: blue;
 }
 
+.error-wrapper {
+  @include grid(1fr, 0.1fr 0.2fr 1fr);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: $black-fogra;
+  height: 30%;
+  width: 50%;
+  color: $cultured;
+  justify-items: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  box-shadow: 6px 9px 9px -4px #000000;
+  transition: all 300ms ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  .error-msg-wrapper {
+    text-align: center;
+  }
+  .error-close-wrapper {
+    justify-self: flex-end;
+    margin-right: 2.5%;
+    button {
+      color: $cultured;
+      font-size: 1.5rem;
+    }
+  }
+}
+.error-wrapper-active {
+  opacity: 1;
+  visibility: visible;
+}
+
 // footer
 footer {
   height: 5vh;
+  @include flex(center, center, row);
   background: $eerie-black;
+  color: $cultured;
+}
+.txt,
+.dev {
+  font-size: 1.3rem;
+}
+.dev {
+  margin-left: 0.2rem;
+  letter-spacing: 0.1rem;
+}
+.img-wrapper {
+  margin-left: 0.5rem;
+  a {
+    font-size: 1.3rem;
+    color: $green-logo;
+  }
+  svg {
+    transition: all 300ms ease-in-out;
+  }
+  svg:hover {
+    transform: rotate(360deg) scale(1.1);
+  }
 }
