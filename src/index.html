@@ -60,7 +60,7 @@
               <option value="eur">EUR</option>
               <option value="gbp">GBP</option>
             </select>
-            <button type="button" title="Search now!">
+            <button class="searchBtn" type="button" title="Search now!">
               <i class="fas fa-search"></i>
             </button>
           </form>
@@ -71,8 +71,11 @@
       <section>
         <div class="info">
           <div class="current-details">
-            <span class="pair">BTC/USD</span>
-            <h2 class="current-price">52.121</h2>
+            <div class="icon-wrapper"></div>
+            <div class="data-wrapper">
+              <span class="pair">BTC/USD</span>
+              <h2 class="current-price">52.121</h2>
+            </div>
           </div>
           <div class="coin-trend">
             <div class="trend">
@@ -85,7 +88,32 @@
         </div>
         <canvas class="value-canvas"></canvas>
       </section>
+      <div class="error-wrapper error-wrapper-active">
+        <div class="error-close-wrapper">
+          <button class="close-err"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="error-header-wrapper">
+          <h3>Oops!</h3>
+        </div>
+        <div class="error-msg-wrapper">
+          <p>Something went wrong!</p>
+          <br />
+          <p>Please try again.</p>
+        </div>
+      </div>
     </main>
-    <footer></footer>
+    <footer>
+      <div class="txt-wrapper">
+        <p class="txt">&#169;<span class="dev">developedbygeo</span></p>
+      </div>
+      <div class="img-wrapper">
+        <a
+          class="gh-link"
+          href="https://github.com/developedbygeo"
+          target="_blank"
+          ><i class="fab fa-github"></i
+        ></a>
+      </div>
+    </footer>
   </body>
 </html>
