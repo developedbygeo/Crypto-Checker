@@ -42,6 +42,12 @@ header {
   }
   button {
     color: $cultured;
+    i {
+      pointer-events: none;
+    }
+    svg {
+      pointer-events: none;
+    }
   }
   select {
     width: 70%;
