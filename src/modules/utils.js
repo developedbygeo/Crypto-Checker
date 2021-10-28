@@ -15,7 +15,7 @@ function handleError(err = '') {
   }
   errorDiv.classList.add('error-wrapper-active');
 }
-async function submitQuery(e) {
+function submitQuery(e) {
   const queryPair = e.target.parentElement[1].value;
   let queryText = nameLookup(e.target.parentElement[0].value);
   if (queryText == undefined) {
