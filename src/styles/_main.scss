@@ -64,14 +64,15 @@ main {
   position: relative;
 }
 section {
+  @include grid(1fr, 0.4fr 1fr 0.5fr);
   height: 100%;
   width: 95%;
   margin: auto;
 }
 .info {
   @include grid(repeat(2, 1fr), 1fr);
-  height: 15%;
-  margin: auto;
+  height: 100%;
+  width: 100%;
   letter-spacing: 0.1rem;
   color: $cultured;
   background: red;
@@ -110,11 +111,16 @@ section {
     font-size: 1.5rem;
   }
 }
-canvas {
-  height: 60%;
+.canvas-wrapper {
+  height: 100%;
   width: 100%;
   margin: auto;
-  background: blue;
+  canvas {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background: $black-fogra;
+  }
 }
 
 .error-wrapper {
