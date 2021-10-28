@@ -54,7 +54,7 @@
         </div>
         <div class="search-wrapper">
           <form>
-            <input type="text" name="search-coin" id="search-coin" />
+            <input type="text" name="search-coin" id="search-coin" required />
             <select name="coin-pair" id="coin-pair">
               <option value="usd">USD</option>
               <option value="eur">EUR</option>
@@ -86,9 +86,11 @@
             </div>
           </div>
         </div>
-        <canvas class="value-canvas"></canvas>
+        <div class="canvas-wrapper">
+          <canvas class="value-canvas"></canvas>
+        </div>
       </section>
-      <div class="error-wrapper error-wrapper-active">
+      <div class="error-wrapper">
         <div class="error-close-wrapper">
           <button class="close-err"><i class="fas fa-times"></i></button>
         </div>
