@@ -8,8 +8,8 @@ export default async function getData(coin, pair) {
       mode: 'cors',
     });
     const finalData = await Promise.all(
-      response.map((response) =>
-        !response.ok ? handleError(`${coin} not found`) : response.json()
+      response.map((res) =>
+        !res.ok ? handleError(`${coin} not found`) : res.json()
       )
     );
     return { tickers: finalData[0], chart: finalData[1] };
