@@ -12,6 +12,7 @@
   "rules": {
     "no-unused-vars": "warn",
     "no-console": "warn",
-    "no-extraneous-dependencies": false
+    "no-extraneous-dependencies": "off",
+    "import/extensions": "off"
   }
 }
