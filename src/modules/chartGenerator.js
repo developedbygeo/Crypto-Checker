@@ -1,25 +1,31 @@
 import { Chart, registerables } from 'chart.js';
+
 Chart.register(...registerables);
 export default class ChartGenerator {
   constructor(data) {
     this.data = data;
   }
+
   parseDates() {
-    console.log(this.data);
     const datesArray = this.data.map((elem) =>
       new Date(elem[0]).toLocaleDateString()
     );
-    console.log(datesArray);
     return datesArray;
   }
+
   parsePrices() {
     const pricesArray = this.data.map((elem) => elem[1].toFixed(4));
-    console.log(pricesArray);
     return pricesArray;
   }
+
   async createChart(val) {
     const chart = document.querySelector('canvas').getContext('2d');
-    new Chart(chart, {
+    // destroying previous chart (if it exists)
+    const chartStatus = Chart.getChart(chart);
+    if (chartStatus !== undefined) {
+      chartStatus.destroy();
+    }
+    const newChart = new Chart(chart, {
       type: 'line',
       data: {
         labels: await this.parseDates(),
@@ -40,9 +46,16 @@ export default class ChartGenerator {
         ],
       },
       options: {
-        callbacks: {
-          title: function () {},
+        animations: {
+          tension: {
+            duration: 1000,
+            delay: 100,
+            easing: 'easeInOutElastic',
+            from: 1,
+            to: 0,
+          },
         },
+        callbacks: {},
         plugins: {
           legend: {
             display: false,
@@ -86,13 +99,14 @@ export default class ChartGenerator {
             },
             ticks: {
               // filters out the prime y ticks
-              callback: function (val, index) {
-                return index % 2 === 0 ? this.getLabelForValue(val) : '';
+              callback(value, index) {
+                return index % 2 === 0 ? this.getLabelForValue(value) : '';
               },
             },
           },
         },
       },
     });
+    return newChart;
   }
 }
