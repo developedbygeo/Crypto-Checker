@@ -1,4 +1,5 @@
 import { cryptoSymbol } from 'crypto-symbol';
+
 const { nameLookup } = cryptoSymbol({});
 
 function closeError() {
@@ -18,10 +19,9 @@ function handleError(err = '') {
 function submitQuery(e) {
   const queryPair = e.target.parentElement[1].value;
   let queryText = nameLookup(e.target.parentElement[0].value);
-  if (queryText == undefined) {
+  if (queryText === undefined) {
     queryText = e.target.parentElement[0].value;
   }
   return { coin: queryText.toLowerCase(), pair: queryPair };
 }
-
 export { closeError, handleError, submitQuery };
