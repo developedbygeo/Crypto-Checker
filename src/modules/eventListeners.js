@@ -9,7 +9,6 @@ export default function enableEventListeners() {
   const errorBtn = document.querySelector('.close-err');
 
   async function handleData(chartInfo, marketInfo, pair) {
-    console.log(marketInfo);
     const {
       name,
       symbol: id,
@@ -31,7 +30,6 @@ export default function enableEventListeners() {
     chartGenerator.createChart(10);
   }
 
-  // TODO maybe break up the function
   searchBtn.addEventListener('click', async (e) => {
     const searchField = e.target.parentElement[0];
     if (searchField.value === '') return;
