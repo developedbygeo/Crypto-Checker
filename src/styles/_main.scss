@@ -64,7 +64,8 @@ main {
   position: relative;
 }
 section {
-  @include grid(1fr, 0.4fr 1fr 0.5fr);
+  @include grid(1fr, 0.3fr 1fr 0.5fr);
+  gap: 2rem;
   height: 100%;
   width: 95%;
   margin: auto;
@@ -75,7 +76,7 @@ section {
   width: 100%;
   letter-spacing: 0.1rem;
   color: $cultured;
-  background: red;
+  background: $black-fogra;
 }
 .current-details,
 .coin-trend {
@@ -83,10 +84,12 @@ section {
   margin-top: 10%;
   .pair {
     font-size: 1.8rem;
+    letter-spacing: 0.15rem;
     align-self: flex-end;
   }
   .current-price {
     align-self: center;
+    letter-spacing: 0.1rem;
   }
 }
 .current-details {
@@ -94,6 +97,7 @@ section {
   gap: 1rem;
   .data-wrapper {
     @include grid(1fr, repeat(2, 1fr));
+    gap: 0.5rem;
   }
 }
 .icon-wrapper {
@@ -101,15 +105,16 @@ section {
   height: 100%;
 }
 .coin-trend {
-  @include grid(1fr, repeat(2, 1fr));
+  @include grid(1fr, 1fr);
 }
 .trend {
   @include grid(1fr 0.15fr, 1fr);
-  grid-area: 2/1/2/1;
+  grid-area: 1;
   align-self: center;
   .trend-stats {
     justify-self: flex-end;
-    font-size: 1.8rem;
+    font-size: 2rem;
+    letter-spacing: 0.2rem;
   }
   .trend-icon {
     @include flex(center, center, row);
@@ -125,6 +130,27 @@ section {
     width: 100%;
     position: relative;
     background: $black-fogra;
+  }
+}
+.market-info {
+  @include grid(repeat(2, 1fr), 1fr);
+  gap: 0.5rem;
+  height: 100%;
+  width: 95%;
+  margin: auto;
+}
+.market-extra-stats {
+  justify-self: flex-end;
+}
+.market-stats,
+.market-extra-stats {
+  @include grid(1fr, auto);
+  h4 {
+    color: $onyx;
+  }
+  p {
+    color: $cultured;
+    letter-spacing: 0.05rem;
   }
 }
 
