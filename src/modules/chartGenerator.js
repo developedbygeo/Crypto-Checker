@@ -14,7 +14,7 @@ export default class ChartGenerator {
   }
 
   parsePrices() {
-    const pricesArray = this.data.map((elem) => elem[1].toFixed(4));
+    const pricesArray = this.data.map((elem) => elem[1]);
     return pricesArray;
   }
 
@@ -81,9 +81,9 @@ export default class ChartGenerator {
         layout: {
           padding: {
             top: 0,
-            right: 0,
+            right: 5,
             bottom: 0,
-            left: 0,
+            left: 5,
           },
         },
         scales: {
