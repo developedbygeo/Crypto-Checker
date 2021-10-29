@@ -32,7 +32,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
       inject: true,
-      title: 'Crypto Ticker',
+      title: 'Crypto Checker',
     }),
     new MiniCssExtractPlugin(),
   ],

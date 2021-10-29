@@ -12,7 +12,8 @@
   "rules": {
     "no-unused-vars": "warn",
     "no-console": "warn",
-    "no-extraneous-dependencies": "off",
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+
     "import/extensions": "off"
   }
 }
