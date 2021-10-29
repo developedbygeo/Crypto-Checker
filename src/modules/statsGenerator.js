@@ -2,17 +2,55 @@ import getSymbolFromCurrency from 'currency-symbol-map';
 import { convertToCurrency } from './utils.js';
 
 export default class StatsGenerator {
-  constructor(image, name, id, marketCapRank, data, pair) {
+  constructor(image, name, id, marketCapRank, tickers, data, pair) {
     this.image = image;
     this.name = name;
     this.id = id.toUpperCase();
     this.marketCapRank = marketCapRank;
+    this.tickers = tickers;
     this.data = data;
     this.pair = pair.toUpperCase();
   }
 
-  parseData() {
-    console.log(this.data);
+  parseCurrentPrice() {
+    let currentPriceValues = this.tickers
+      .filter((obj) => obj.base === this.id && obj.target === this.pair)
+      .map((obj) => obj.last);
+    let currentValuesLength = currentPriceValues.length;
+    if (currentValuesLength === 0) {
+      currentPriceValues = this.tickers
+        .filter((obj) => obj.base === this.id && obj.target === 'USDT')
+        .map((obj) => obj.last);
+      currentValuesLength = currentPriceValues.length;
+    }
+    let currentValue =
+      currentPriceValues.sort((a, b) => a - b).reduce((a, b) => a + b) /
+      currentValuesLength;
+    if (currentValue >= 1000) {
+      currentValue = currentValue.toFixed(2);
+    } else if (currentValue >= 1) {
+      currentValue = currentValue.toFixed(4);
+    } else {
+      currentValue = currentValue.toFixed(6);
+    }
+    return currentValue;
+  }
+
+  parsePriceChange() {
+    let color = '#219721';
+    let icon = '<i class="fas fa-chevron-up"></i>';
+    let currentPriceTrend = this.data.price_change_percentage_24h.toFixed(4);
+    if (currentPriceTrend < 0) {
+      icon = '<i class="fas fa-chevron-down"></i>';
+      color = '#E0001E';
+    }
+    if (currentPriceTrend < 1000) {
+      currentPriceTrend = String(currentPriceTrend.replace('.', ','));
+    }
+    return { trend: currentPriceTrend, icon, color };
+  }
+
+  parseMarketData() {
     // market stats
     const marketCap = convertToCurrency(
       this.data.market_cap[this.pair.toLowerCase()]
@@ -66,8 +104,22 @@ export default class StatsGenerator {
     };
   }
 
+  configureMainData() {
+    // main stats
+    const currentPrice = document.querySelector('.current-price');
+    const currentPriceTrend = document.querySelector('.trend-stats');
+    const trendContainer = document.querySelector('.trend-icon');
+    currentPrice.textContent = `${getSymbolFromCurrency(
+      this.pair
+    )}${this.parseCurrentPrice()}`;
+    currentPriceTrend.textContent = `${this.parsePriceChange().trend}%`;
+    currentPriceTrend.style.color = this.parsePriceChange().color;
+    trendContainer.innerHTML = this.parsePriceChange().icon;
+    trendContainer.style.color = this.parsePriceChange().color;
+  }
+
   addData() {
-    const { mainStats, extraStats } = this.parseData();
+    const { mainStats, extraStats } = this.parseMarketData();
     // market stats
     const marketCapText = document.querySelector('.market-stats p');
     const todaysHighText = document.querySelector('.market-24h-high p');
@@ -105,11 +157,9 @@ export default class StatsGenerator {
   }
 
   populateDOM() {
-    // const currentPriceText = document.querySelector('.current-price');
-    // const trendStatsText = document.querySelector('.trend-stats');
+    this.configureMainData();
     this.addImage();
     this.addPairText();
-    // this.parseData();
     this.addData();
   }
 }
