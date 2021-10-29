@@ -15,19 +15,21 @@ export default function enableEventListeners() {
       market_cap_rank: marketCapRank,
       image: { large: image },
       market_data: data,
+      tickers,
     } = marketInfo;
     const statsGenerator = new StatsGenerator(
       image,
       name,
       id,
       marketCapRank,
+      tickers,
       data,
       pair
     );
     const chartGenerator = new ChartGenerator(chartInfo);
 
     statsGenerator.populateDOM();
-    chartGenerator.createChart(10);
+    chartGenerator.createChart(statsGenerator.parsePriceChange().trend);
   }
 
   searchBtn.addEventListener('click', async (e) => {
