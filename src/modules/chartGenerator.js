@@ -2,8 +2,9 @@ import { Chart, registerables } from 'chart.js';
 
 Chart.register(...registerables);
 export default class ChartGenerator {
-  constructor(data) {
+  constructor(data, priceChange) {
     this.data = data;
+    this.priceChange = Number(priceChange);
   }
 
   parseDates() {
@@ -18,8 +19,9 @@ export default class ChartGenerator {
     return pricesArray;
   }
 
-  async createChart(val) {
+  async createChart() {
     const chart = document.querySelector('canvas').getContext('2d');
+    const color = this.priceChange < 0 ? '#5cdb5c' : '#ff0021';
     // destroying previous chart (if it exists)
     const chartStatus = Chart.getChart(chart);
     if (chartStatus !== undefined) {
@@ -33,8 +35,8 @@ export default class ChartGenerator {
           {
             data: await this.parsePrices(),
             backgroundColor: '#111213ff',
-            // configures the line color based on the average change provided
-            borderColor: val <= 0 ? '#ff0021' : '#5cdb5c',
+            // configures the line color based on the 24h change provided
+            borderColor: color,
             borderWidth: 1.5,
             borderJoinStyle: 'round',
             pointRadius: 0,
