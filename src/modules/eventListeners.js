@@ -26,11 +26,19 @@ export default function enableEventListeners() {
       data,
       pair
     );
-    const chartGenerator = new ChartGenerator(chartInfo);
+    const chartGenerator = new ChartGenerator(
+      chartInfo,
+      statsGenerator.parsePriceChange().trend
+    );
 
     statsGenerator.populateDOM();
-    chartGenerator.createChart(statsGenerator.parsePriceChange().trend);
+    chartGenerator.createChart();
   }
+
+  window.addEventListener('load', async () => {
+    const { tickers, chart } = await getData('bitcoin', 'usd');
+    handleData(chart.prices, tickers, 'usd');
+  });
 
   searchBtn.addEventListener('click', async (e) => {
     const searchField = e.target.parentElement[0];
