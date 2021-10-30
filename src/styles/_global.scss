@@ -5,6 +5,9 @@
 }
 html {
   font-size: 50%;
+  @include mq(sphone-landscape) {
+    font-size: 25%;
+  }
   @include mq(sphone) {
     font-size: 30%;
   }
