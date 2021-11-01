@@ -3,14 +3,12 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: {
     main: './src/index.js',
   },
-  devtool: 'inline-source-map',
   devServer: {
     hot: true,
     port: 3000,
@@ -23,12 +21,11 @@ module.exports = {
     maxAssetSize: 1536000,
   },
   plugins: [
-    new Dotenv(),
     new webpack.ids.HashedModuleIdsPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    // new CopyWebpackPlugin({
-    //   patterns: [{ from: './src/icons/', to: './icons' }],
-    // }),
+    new CopyWebpackPlugin({
+      patterns: [{ from: './src/icons/', to: './icons' }],
+    }),
     new HtmlWebpackPlugin({
       template: './src/index.html',
       inject: true,
