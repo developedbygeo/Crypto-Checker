@@ -4,7 +4,7 @@ Chart.register(...registerables);
 export default class ChartGenerator {
   constructor(data, priceChange) {
     this.data = data;
-    this.priceChange = Number(priceChange);
+    this.priceChange = Number(priceChange.replace(',', '.'));
   }
 
   parseDates() {
