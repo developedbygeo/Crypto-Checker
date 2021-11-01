@@ -113,6 +113,8 @@ section {
   }
   @include mq(desktop) {
     @include grid(1fr 0.6fr, auto);
+    width: 95%;
+    margin: auto;
   }
 }
 .info {
@@ -180,6 +182,7 @@ section {
   }
   @include mq(desktop) {
     @include grid(0.35fr 1fr, 1fr);
+    gap: 0.5rem;
   }
   .data-wrapper {
     @include grid(1fr, repeat(2, 1fr));
