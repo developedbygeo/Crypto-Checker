@@ -21,7 +21,7 @@ export default class ChartGenerator {
 
   async createChart() {
     const chart = document.querySelector('canvas').getContext('2d');
-    const color = this.priceChange < 0 ? '#5cdb5c' : '#ff0021';
+    const color = this.priceChange < 0 ? '#ff0021' : '#5cdb5c';
     // destroying previous chart (if it exists)
     const chartStatus = Chart.getChart(chart);
     if (chartStatus !== undefined) {
