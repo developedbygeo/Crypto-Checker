@@ -342,6 +342,9 @@ section {
     }
   }
 }
+.error-msg::first-letter {
+  text-transform: capitalize;
+}
 .error-wrapper-active {
   opacity: 1;
   visibility: visible;
