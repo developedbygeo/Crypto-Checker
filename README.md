@@ -53,6 +53,14 @@ Coingecko's API does not require a key. However, the limit of 50 calls per minut
 
 For a more detailed overview of the development & production dependencies, please check `package.json`.
 
+## Responsiveness Note
+
+This app is responsive in both portrait and landscape mode. **However**, since Graph.JS has to re-render on screen change, it is essential to **refresh** the page when testing out various viewports.
+
+## Live Version
+
+<https://developedbygeo.github.io/Crypto-Checker/>
+
 ## Contributing
 
 Contributions are certainly welcome. Please feel free to open an issue/PR if there is something you would like to be changed.
