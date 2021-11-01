@@ -6,6 +6,7 @@ import StatsGenerator from './statsGenerator.js';
 export default function enableEventListeners() {
   const searchBtn = document.querySelector('.searchBtn');
   const searchForm = document.querySelector('form');
+  const searchInput = document.querySelector('#sarch-coin');
   const errorBtn = document.querySelector('.close-err');
 
   async function handleData(chartInfo, marketInfo, pair) {
@@ -50,6 +51,11 @@ export default function enableEventListeners() {
   });
   searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
+  });
+  searchForm.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      searchBtn.click();
+    }
   });
   errorBtn.addEventListener('click', closeError);
 }
