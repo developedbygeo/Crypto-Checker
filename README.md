@@ -1,5 +1,7 @@
 # Crypto Checker
 
+![image info](./sample.jpg)
+
 Crypto Checker is an app that looks up cryptocurrency data and trends. Built mobile-first and fully responsive for both portrait and landscape orientations, it fetches data from the Coingecko API, cleans & parses it to create a detailed overview of each cryptocurrency's current state and price.
 
 ## Installation
@@ -65,4 +67,4 @@ The cryptocurrency market is volatile and there may be a real-time deviation on 
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT](./LICENSE.md)
